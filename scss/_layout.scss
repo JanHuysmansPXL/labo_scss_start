@@ -1,5 +1,7 @@
 @use "base" as *;
 
+/* TOP */
+
 .header {
   width: 100%;
   height: 100vh;
@@ -18,6 +20,8 @@
     text-align: center;
   }
 }
+
+/* ABOUT */
 
 .about {
   height: 90vh;
@@ -60,6 +64,20 @@
     }
     .description:first-letter {
       padding-left: 50px;
+    }
+  }
+}
+
+/* GALLERY */
+
+.gallery {
+  .cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $color-white;
+    .card {
+      width: 33.3333%;
+      height: 30vw;
     }
   }
 }
