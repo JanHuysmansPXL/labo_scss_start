@@ -1,5 +1,94 @@
 @use "base" as *;
 
+/* NAV */
+.navbar {
+  position: relative;
+  z-index: 200;
+  .checkbox:checked ~ .hamburger-menu .menu {
+    transform: rotate(90deg);
+    .menu-line-1 {
+      transform: rotate(-45deg) translateY(-5px);
+      transform-origin: right;
+    }
+    .menu-line-2 {
+      display: none;
+      transition-delay: .5s;
+    }
+    .menu-line-3 {
+      transform: rotate(45deg) translateY(5px);
+      transform-origin: right;
+    }
+  }
+  .checkbox:checked ~ .navbar-navigation .navbar-navigation-left {
+      left: 0;
+  }
+  .checkbox:checked ~ .navbar-navigation .navbar-navigation-right {
+      right: 0;
+  }
+  .navbar-navigation {
+    display: flex;
+    .navbar-navigation-left {
+      width: 50%;
+      height: 100vh;
+      background-color: $color-primary;
+      position: fixed;
+      left: -50vw;
+      transition: left 0.8s cubic-bezier(1, 0, 0, 1);
+      .left-img {
+        width: 50%;
+        position: absolute;
+        box-shadow: 0 15px 60px rgba($color-black, 0.8);
+        opacity: 70%;
+        border-radius: 10px;
+      }
+      .left-img-1 {
+        top: 2%;
+        left: 2%;
+      }
+      .left-img-2 {
+        bottom: 3%;
+        right: 4%;
+      }
+      .left-img-3 {
+        top: 30%;
+        left: 25%;
+      }
+    }
+    .navbar-navigation-right {
+      position: fixed;
+      right: -50vw;
+      width: 50%;
+      height: 100vh;
+      background-color: $color-secondary;
+      transition: right 0.8s cubic-bezier(1, 0, 0, 1);
+      .nav-list {
+        @include flexlayout();
+        flex-direction: column;
+        height: 100%;
+        .nav-list-item {
+          list-style-type: none;
+          .nav-list-link {
+            font-family: $font-nunito;
+            font-size: 80px;
+            @include textStyles(capitalize);
+            color: $color-light;
+            text-decoration: none;
+            display: block;
+            margin: 20px;
+            text-align: center;
+            &:hover {
+              color: $color-primary;
+              letter-spacing: 4px;
+              transition: all .5s;
+              transition-delay: .5s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 /* TOP */
 
 .header {
